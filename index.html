@@ -101,6 +101,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-bet
 footer nav{display:flex;flex-wrap:wrap;gap:20px}
 footer a{text-decoration:none}
 footer a:hover{text-decoration:underline}
+/* the CATS22 lockup (cat + wordmark, the master file, as in the app's footer) — scale by height only */
+footer .by{display:inline-flex;align-items:center;gap:12px}
+footer .by img{height:22px;width:auto}
+footer .by:hover img{opacity:.7}
 @media (max-width:860px){
   .hero{grid-template-columns:1fr;padding-top:48px;padding-bottom:64px;gap:48px}
   .steps,.feats{grid-template-columns:1fr}
@@ -198,7 +202,7 @@ footer a:hover{text-decoration:underline}
 </main>
 
 <footer><div class="wrap">
-  <span class="mono muted">© 2026 <a href="https://cats22.agency/yeahno">CATS22</a></span>
+  <a class="by" href="https://cats22.agency/yeahno"><span class="mono muted">© 2026</span><img src="img/cats22.svg" alt="CATS22" width="2313" height="514"></a>
   <nav class="mono"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a></nav>
 </div></footer>
 <script>
