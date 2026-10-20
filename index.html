@@ -1,26 +1,165 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Remember what you liked · yeah/no</title>
+<title>yeah/no — Remember what you liked</title>
+<meta name="description" content="Did I like this? yeah/no is the fastest way to remember what you liked — and what you didn’t. Log anything in two taps. Free on iPhone.">
+<link rel="canonical" href="https://yeahno.cats22.agency/">
+<meta name="apple-itunes-app" content="app-id=6824335408">
+<meta property="og:type" content="website">
+<meta property="og:title" content="yeah/no — Remember what you liked">
+<meta property="og:description" content="Log anything you try in two taps. Search it later and know in a second: yeah or no.">
+<meta property="og:url" content="https://yeahno.cats22.agency/">
+<meta property="og:image" content="https://yeahno.cats22.agency/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"yeah/no","operatingSystem":"iOS","applicationCategory":"LifestyleApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"CATS22","url":"https://cats22.agency"},"url":"https://yeahno.cats22.agency/"}</script>
 <style>
-:root{--ink:#111;--muted:#6E6C66;--face:#34343A;--bg:#fff}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 'Space Grotesk',system-ui,sans-serif}
-main{max-width:680px;margin:0 auto;padding:32px 16px 80px}
+:root{--ink:#111;--muted:#5f5d58;--face:#34343A;--line:#e6e4df;--bg:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 'Space Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:var(--ink)}
-.wm{font:34px/1 'Archivo Black',sans-serif;letter-spacing:.02em;color:#fff;-webkit-text-stroke:1.5px var(--ink);text-shadow:0 2.5px 0 var(--ink);text-decoration:none;display:inline-block;margin-bottom:28px}
-h1{font:32px/1.1 'Archivo Black',sans-serif;margin:0 0 6px;text-transform:uppercase}
-h2{font:18px/1.2 'Archivo Black',sans-serif;text-transform:uppercase;margin:28px 0 8px}
-.meta{font:500 12px/1.4 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
-nav{display:flex;gap:16px;margin-top:40px;font:700 12px 'JetBrains Mono',monospace;text-transform:uppercase}
-.btn{display:inline-block;margin-top:16px;padding:14px 22px;background:var(--face);color:#fff;border:2px solid var(--ink);border-radius:16px;box-shadow:0 4px 0 var(--ink);font:18px 'Archivo Black',sans-serif;text-decoration:none}
-.hero{font:40px/1.05 'Archivo Black',sans-serif;text-transform:uppercase;margin:8px 0 16px}
-</style></head><body><main>
-<a class="wm" href="./">yeah/no.</a>
-<p class="hero">Did I like this?</p>
-<p>yeah/no is the fastest way to remember what you liked — and what you didn’t. Log anything you try in two taps. Search it later and know in a second: yeah or no.</p>
-<p class="meta">Private · No ads · No tracking</p>
-<a class="btn" href="support.html">Get help</a>
-<nav><a href="./">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a></nav>
-<p class="meta">© 2026 CATS22</p>
-</main></body></html>
+img{display:block;max-width:100%;height:auto}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.mono{font:700 12px/1.4 'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase}
+.muted{color:var(--muted)}
+.display{font-family:'Archivo Black',sans-serif;text-transform:uppercase;line-height:.98;letter-spacing:-.01em;margin:0}
+/* buttons + cards: 2px ink outline, 4px lip straight down, pressed = face drops into the lip */
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 24px;background:var(--face);color:#fff;border:2px solid var(--ink);border-radius:16px;box-shadow:0 4px 0 var(--ink);font:16px/1 'Archivo Black',sans-serif;text-transform:uppercase;text-decoration:none;transition:transform 80ms ease,box-shadow 80ms ease}
+.btn:hover{background:var(--ink)}
+.btn:active{transform:translateY(4px);box-shadow:0 0 0 var(--ink)}
+.btn.ghost{background:#fff;color:var(--ink)}
+.btn.ghost:hover{background:#f4f4f2}
+.btn.sm{padding:10px 16px;font-size:13px;border-radius:12px;box-shadow:0 3px 0 var(--ink)}
+.btn.sm:active{transform:translateY(3px)}
+.card{border:2px solid var(--ink);border-radius:20px;box-shadow:0 4px 0 var(--ink);background:#fff}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+header img{height:28px;width:auto}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding-top:72px;padding-bottom:88px}
+.hero h1{font-size:clamp(48px,6.6vw,96px)}
+.hero p.lead{font-size:20px;max-width:30em;margin:24px 0 32px}
+.hero .meta{margin-top:24px}
+.hero-shot{justify-self:center;width:min(340px,100%);border-radius:28px;overflow:hidden}
+.mark{display:inline-flex;align-items:center;justify-content:center;width:1.05em;height:1.05em;border:2px solid var(--ink);border-radius:.22em;font:inherit;line-height:1;vertical-align:-.12em}
+.mark.y{background:var(--ink);color:#fff}
+/* sections */
+section{border-top:1px solid var(--line);padding:88px 0}
+.kicker{margin-bottom:16px}
+h2.display{font-size:clamp(36px,5.4vw,64px);max-width:14em}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.step{padding:28px}
+.step .display{font-size:28px;margin:14px 0 10px}
+.step p{margin:0;color:var(--muted)}
+.shots{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;padding:48px 20px 12px;margin:0 -20px;scrollbar-width:none}
+.shots::-webkit-scrollbar{display:none}
+.shots figure{margin:0;flex:0 0 min(260px,68vw);scroll-snap-align:start;overflow:hidden}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.feat{padding:28px}
+.feat h3{font:20px/1.15 'Archivo Black',sans-serif;text-transform:uppercase;margin:12px 0 10px}
+.feat p{margin:0;color:var(--muted)}
+.faq{max-width:760px;margin-top:40px}
+details{border-bottom:2px solid var(--ink);padding:20px 0}
+details:first-child{border-top:2px solid var(--ink)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font:18px/1.3 'Archivo Black',sans-serif;text-transform:uppercase}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';font-family:'JetBrains Mono',monospace}
+details[open] summary::after{content:'–'}
+details p{margin:12px 0 0;color:var(--muted)}
+.final{text-align:center}
+.final h2{margin:0 auto 32px;max-width:none;font-size:clamp(44px,8vw,104px)}
+footer{border-top:1px solid var(--line);padding:32px 0 48px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:center}
+footer nav{display:flex;flex-wrap:wrap;gap:20px}
+footer a{text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;padding-top:48px;padding-bottom:64px;gap:48px}
+  .steps,.feats{grid-template-columns:1fr}
+  section{padding:64px 0}
+}
+@media (min-width:861px) and (max-width:1040px){.feats{grid-template-columns:repeat(2,1fr)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style></head><body>
+<header><div class="wrap">
+  <a href="./" aria-label="yeah/no home"><img src="img/wordmark.png" alt="yeah/no." width="1859" height="439"></a>
+  <a class="btn sm" href="#">Get the app<span aria-hidden="true">↗</span></a>
+</div></header>
+
+<main>
+<div class="wrap hero">
+  <div>
+    <p class="mono muted">Free on iPhone</p>
+    <h1 class="display">Did I like this?</h1>
+    <p class="lead">yeah/no is the fastest way to remember what you liked — and what you didn’t. Log anything you try in two taps. Next time you’re standing in the aisle, search it and know in a second.</p>
+    <a class="btn " href="#">Download on the App Store<span aria-hidden="true">↗</span></a>
+    <p class="mono muted meta">Private · No ads · No tracking</p>
+  </div>
+  <img class="hero-shot card" src="img/1-home.jpg" alt="Home — search, Add Something and recent things tried, each marked y. or n." width="660" height="1434">
+</div>
+
+<section id="how"><div class="wrap">
+  <p class="mono muted kicker">How it works</p>
+  <h2 class="display">Two taps now. One second later.</h2>
+  <div class="steps">
+    <div class="card step"><p class="mono muted">01</p><h3 class="display">Add something</h3><p>A coffee, a frozen pizza, running shoes, a restaurant, a film. Type what it was.</p></div>
+    <div class="card step"><p class="mono muted">02</p><h3 class="display"><span class="mark y">y.</span> or <span class="mark">n.</span></h3><p>Tap YEAH or NO. That’s the save. Add a brand or a note if you feel like it.</p></div>
+    <div class="card step"><p class="mono muted">03</p><h3 class="display">Search it later</h3><p>“Did I like ______ ???” — the answer is waiting before you finish typing.</p></div>
+  </div>
+</div></section>
+
+<section id="screens"><div class="wrap">
+  <p class="mono muted kicker">Inside the app</p>
+  <h2 class="display">Brutally simple. A little bit loud.</h2>
+  <div class="shots">
+    <figure class="card"><img src="img/1-home.jpg" alt="Home — search, Add Something and recent things tried, each marked y. or n." width="660" height="1434" loading="lazy"></figure>
+    <figure class="card"><img src="img/2-search.jpg" alt="Search for pizza — 3 matches, mostly yeah" width="660" height="1434" loading="lazy"></figure>
+    <figure class="card"><img src="img/3-add.jpg" alt="Adding something you have had before — the app warns you said no last time" width="660" height="1434" loading="lazy"></figure>
+    <figure class="card"><img src="img/4-item.jpg" alt="An item’s history — mostly yeah, two of three times" width="660" height="1434" loading="lazy"></figure>
+    <figure class="card"><img src="img/5-stats.jpg" alt="Yeahtistics — 14 yeahs, 9 nos, yeah rate by category" width="660" height="1434" loading="lazy"></figure>
+  </div>
+</div></section>
+
+<section id="features"><div class="wrap">
+  <p class="mono muted kicker">Why it works</p>
+  <h2 class="display">Built for the aisle, not the archive.</h2>
+  <div class="feats">
+    <div class="card feat"><p class="mono muted">01</p><h3>Two taps to log</h3><p>Name it, tap YEAH or NO. The verdict button is the save button. Brand, date and a note are there when you want them.</p></div>
+    <div class="card feat"><p class="mono muted">02</p><h3>Search answers first</h3><p>“3 matches · mostly yeah” before you’ve read the list. Typos are fine — “dominos” finds Domino’s.</p></div>
+    <div class="card feat"><p class="mono muted">03</p><h3>Remembers when you change your mind</h3><p>Tried it again? It adds to that item’s history. While you type: “You’ve had this — said no on 10/01.”</p></div>
+    <div class="card feat"><p class="mono muted">04</p><h3>Your yeahtistics</h3><p>Yeah rate, favourites by category, your longest yeah streak, and what you re-try most.</p></div>
+    <div class="card feat"><p class="mono muted">05</p><h3>No sign-up wall</h3><p>Open it and start logging. Back up with an email whenever you like — or never.</p></div>
+    <div class="card feat"><p class="mono muted">06</p><h3>Private. Yours.</h3><p>Nobody else sees your logs. No ads, no tracking. Export to CSV or delete everything, any time.</p></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <p class="mono muted kicker">Questions</p>
+  <h2 class="display">Fair enough.</h2>
+  <div class="faq">
+    <details><summary>How do I log something?</summary><p>Tap ADD SOMETHING, type what it was, then tap YEAH or NO. Brand, date and a note are optional.</p></details>
+    <details><summary>I tried it again — do I add it again?</summary><p>Yes. Logging the same name adds to that item’s history instead of making a duplicate.</p></details>
+    <details><summary>Are my logs public?</summary><p>No. Only you can see them.</p></details>
+    <details><summary>I got a new phone.</summary><p>If you backed up (Settings → Back up with email), sign in on the new phone.</p></details>
+    <details><summary>How do I delete my data?</summary><p>In the app: Settings → Delete account &amp; all data. It’s immediate and permanent. Or email us and we’ll do it for you.</p></details>
+    <details><summary>Is it free?</summary><p>Yes. No ads, no account required, nothing to unlock to log or search.</p></details>
+    <details><summary>Something else?</summary><p>Email <a href="mailto:mariano@cats22.agency">mariano@cats22.agency</a> — a human reads every message.</p></details>
+  </div>
+</div></section>
+
+<section class="final"><div class="wrap">
+  <h2 class="display">Go on. Log something.</h2>
+  <a class="btn " href="#">Download on the App Store<span aria-hidden="true">↗</span></a>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span class="mono muted">© 2026 <a href="https://cats22.agency/yeahno">CATS22</a></span>
+  <nav class="mono"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a></nav>
+</div></footer>
+</body></html>
