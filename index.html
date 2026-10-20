@@ -45,8 +45,11 @@ header img{height:28px;width:auto}
 .hero h1{font-size:clamp(48px,6.6vw,96px)}
 .hero p.lead{font-size:20px;max-width:30em;margin:24px 0 32px}
 .hero .meta{margin-top:24px}
-.hero-shot{justify-self:center;width:min(340px,100%);border-radius:28px;overflow:hidden}
-.mark{display:inline-flex;align-items:center;justify-content:center;width:1.05em;height:1.05em;border:2px solid var(--ink);border-radius:.22em;font:inherit;line-height:1;vertical-align:-.12em}
+.hero-shot{justify-self:center;width:min(320px,82vw)}
+/* our own phone: an ink bezel with the lip, around the bare app screen */
+.phone{border:9px solid var(--ink);border-radius:46px;overflow:hidden;background:#fff;box-shadow:0 6px 0 var(--ink)}
+.phone img{width:100%}
+.mark{display:inline-flex;align-items:center;justify-content:center;width:1.25em;height:1.25em;border:2px solid var(--ink);border-radius:.28em;font:.82em/1 'Archivo Black',sans-serif;text-transform:none;vertical-align:.06em}
 .mark.y{background:var(--ink);color:#fff}
 /* sections */
 section{border-top:1px solid var(--line);padding:88px 0}
@@ -56,9 +59,13 @@ h2.display{font-size:clamp(36px,5.4vw,64px);max-width:14em}
 .step{padding:28px}
 .step .display{font-size:28px;margin:14px 0 10px}
 .step p{margin:0;color:var(--muted)}
-.shots{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;padding:48px 20px 12px;margin:0 -20px;scrollbar-width:none}
-.shots::-webkit-scrollbar{display:none}
-.shots figure{margin:0;flex:0 0 min(260px,68vw);scroll-snap-align:start;overflow:hidden}
+.rows{margin-top:24px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:56px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.row:nth-child(even) .row-text{order:2}
+.row .phone{justify-self:center;width:min(300px,78vw)}
+.row h3{font-size:clamp(32px,4.2vw,52px);margin:12px 0 16px}
+.row p.body{font-size:19px;color:var(--muted);max-width:26em;margin:0}
 .feats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
 .feat{padding:28px}
 .feat h3{font:20px/1.15 'Archivo Black',sans-serif;text-transform:uppercase;margin:12px 0 10px}
@@ -81,9 +88,10 @@ footer a:hover{text-decoration:underline}
 @media (max-width:860px){
   .hero{grid-template-columns:1fr;padding-top:48px;padding-bottom:64px;gap:48px}
   .steps,.feats{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr;gap:32px;padding:40px 0}
+  .row:nth-child(even) .row-text{order:0}
   section{padding:64px 0}
 }
-@media (min-width:861px) and (max-width:1040px){.feats{grid-template-columns:repeat(2,1fr)}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 </style></head><body>
 <header><div class="wrap">
@@ -100,41 +108,53 @@ footer a:hover{text-decoration:underline}
     <a class="btn " href="#">Download on the App Store<span aria-hidden="true">↗</span></a>
     <p class="mono muted meta">Private · No ads · No tracking</p>
   </div>
-  <img class="hero-shot card" src="img/1-home.jpg" alt="Home — search, Add Something and recent things tried, each marked y. or n." width="660" height="1434">
+  <div class="hero-shot phone"><img src="img/screen-1-home.jpg" alt="Home — search, Add Something and recent things tried, each marked y. or n." width="598" height="1300"></div>
 </div>
 
 <section id="how"><div class="wrap">
   <p class="mono muted kicker">How it works</p>
-  <h2 class="display">Two taps now. One second later.</h2>
+  <h2 class="display">Log it now. Know it later.</h2>
   <div class="steps">
-    <div class="card step"><p class="mono muted">01</p><h3 class="display">Add something</h3><p>A coffee, a frozen pizza, running shoes, a restaurant, a film. Type what it was.</p></div>
-    <div class="card step"><p class="mono muted">02</p><h3 class="display"><span class="mark y">y.</span> or <span class="mark">n.</span></h3><p>Tap YEAH or NO. That’s the save. Add a brand or a note if you feel like it.</p></div>
-    <div class="card step"><p class="mono muted">03</p><h3 class="display">Search it later</h3><p>“Did I like ______ ???” — the answer is waiting before you finish typing.</p></div>
+    <div class="card step"><p class="mono muted">01</p><h3 class="display">Add something</h3><p>Tried something new — a coffee, a frozen pizza, a film? Tap ADD SOMETHING and type what it was.</p></div>
+    <div class="card step"><p class="mono muted">02</p><h3 class="display"><span class="mark y">y.</span> or <span class="mark">n.</span></h3><p>Tap YEAH or NO. That one tap saves it. A brand or a note is optional.</p></div>
+    <div class="card step"><p class="mono muted">03</p><h3 class="display">Search it later</h3><p>Next time it comes up, search it. You’ll see what you said before you finish typing.</p></div>
   </div>
 </div></section>
 
 <section id="screens"><div class="wrap">
   <p class="mono muted kicker">Inside the app</p>
   <h2 class="display">Brutally simple. A little bit loud.</h2>
-  <div class="shots">
-    <figure class="card"><img src="img/1-home.jpg" alt="Home — search, Add Something and recent things tried, each marked y. or n." width="660" height="1434" loading="lazy"></figure>
-    <figure class="card"><img src="img/2-search.jpg" alt="Search for pizza — 3 matches, mostly yeah" width="660" height="1434" loading="lazy"></figure>
-    <figure class="card"><img src="img/3-add.jpg" alt="Adding something you have had before — the app warns you said no last time" width="660" height="1434" loading="lazy"></figure>
-    <figure class="card"><img src="img/4-item.jpg" alt="An item’s history — mostly yeah, two of three times" width="660" height="1434" loading="lazy"></figure>
-    <figure class="card"><img src="img/5-stats.jpg" alt="Yeahtistics — 14 yeahs, 9 nos, yeah rate by category" width="660" height="1434" loading="lazy"></figure>
+  <div class="rows">
+    <div class="row">
+      <div class="row-text"><p class="mono muted">Log it in two taps</p><h3 class="display">Remember what you liked.</h3><p class="body">Everything you’ve tried, newest first, each one stamped y. or n. — so the answer is on the first screen you see.</p></div>
+      <div class="phone"><img src="img/screen-1-home.jpg" alt="Home — search, Add Something and recent things tried, each marked y. or n." width="598" height="1300" loading="lazy"></div>
+    </div>
+    <div class="row">
+      <div class="row-text"><p class="mono muted">Search answers first</p><h3 class="display">Did I like it? Know in a second.</h3><p class="body">Type “pizza” and the verdict comes before the list: 3 matches, mostly yeah. Typos are fine — “dominos” finds Domino’s.</p></div>
+      <div class="phone"><img src="img/screen-2-search.jpg" alt="Search for pizza — 3 matches, mostly yeah" width="598" height="1300" loading="lazy"></div>
+    </div>
+    <div class="row">
+      <div class="row-text"><p class="mono muted">The verdict is the save</p><h3 class="display">Two taps. Yeah or no.</h3><p class="body">Name it, tap YEAH or NO, done. Had it before? It tells you while you type — “said no on 10/01” — before you make the same mistake twice.</p></div>
+      <div class="phone"><img src="img/screen-3-add.jpg" alt="Adding gluten free pizza — the app warns you said no last time" width="598" height="1300" loading="lazy"></div>
+    </div>
+    <div class="row">
+      <div class="row-text"><p class="mono muted">Every time you had it</p><h3 class="display">Tastes change. It remembers.</h3><p class="body">Logging something again adds to its history instead of making a duplicate, with the note from each time.</p></div>
+      <div class="phone"><img src="img/screen-4-item.jpg" alt="An item’s history — mostly yeah, two of three times" width="598" height="1300" loading="lazy"></div>
+    </div>
+    <div class="row">
+      <div class="row-text"><p class="mono muted">Your yeahtistics</p><h3 class="display">Your taste, in numbers.</h3><p class="body">Yeah rate, favourites by category, your longest yeah streak and the thing you keep coming back to.</p></div>
+      <div class="phone"><img src="img/screen-5-stats.jpg" alt="Yeahtistics — 14 yeahs, 9 nos, yeah rate by category" width="598" height="1300" loading="lazy"></div>
+    </div>
   </div>
 </div></section>
 
 <section id="features"><div class="wrap">
-  <p class="mono muted kicker">Why it works</p>
-  <h2 class="display">Built for the aisle, not the archive.</h2>
+  <p class="mono muted kicker">The small print</p>
+  <h2 class="display">Simple on purpose.</h2>
   <div class="feats">
-    <div class="card feat"><p class="mono muted">01</p><h3>Two taps to log</h3><p>Name it, tap YEAH or NO. The verdict button is the save button. Brand, date and a note are there when you want them.</p></div>
-    <div class="card feat"><p class="mono muted">02</p><h3>Search answers first</h3><p>“3 matches · mostly yeah” before you’ve read the list. Typos are fine — “dominos” finds Domino’s.</p></div>
-    <div class="card feat"><p class="mono muted">03</p><h3>Remembers when you change your mind</h3><p>Tried it again? It adds to that item’s history. While you type: “You’ve had this — said no on 10/01.”</p></div>
-    <div class="card feat"><p class="mono muted">04</p><h3>Your yeahtistics</h3><p>Yeah rate, favourites by category, your longest yeah streak, and what you re-try most.</p></div>
-    <div class="card feat"><p class="mono muted">05</p><h3>No sign-up wall</h3><p>Open it and start logging. Back up with an email whenever you like — or never.</p></div>
-    <div class="card feat"><p class="mono muted">06</p><h3>Private. Yours.</h3><p>Nobody else sees your logs. No ads, no tracking. Export to CSV or delete everything, any time.</p></div>
+    <div class="card feat"><p class="mono muted">01</p><h3>No sign-up wall</h3><p>Open it and start logging. Back up with an email whenever you like — or never.</p></div>
+    <div class="card feat"><p class="mono muted">02</p><h3>Private by default</h3><p>Nobody else sees your logs. No ads, no tracking. Export to CSV or delete everything, any time.</p></div>
+    <div class="card feat"><p class="mono muted">03</p><h3>Free</h3><p>Logging and search are free, always. Nothing to unlock to use the thing.</p></div>
   </div>
 </div></section>
 
